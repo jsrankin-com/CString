@@ -101,7 +101,7 @@ inline CharString* _getLine(FILE* fp, size_t size, int c) {
 	int ch = 0;
 	size_t len = 0;
 	char* tmp = NULL;
-	while ((!EOF) || (EOF != (ch = fgetc(fp)) && ch != c))
+	while ((ch = fgetc(fp)) != EOF && ch != c)
 	{
 		ret->data[len++] = ch;
 		if (len == size)
